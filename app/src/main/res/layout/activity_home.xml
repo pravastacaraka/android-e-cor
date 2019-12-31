@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    tools:context=".HomeActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:text="Dashboard"
+        android:textColor="#ffffff"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/logo_home"
+        android:layout_width="80dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ecor_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bg_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/yellow_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_navbar"
+        app:layout_constraintEnd_toEndOf="@+id/bg_navbar"
+        app:layout_constraintStart_toStartOf="@+id/bg_navbar"
+        app:layout_constraintTop_toTopOf="@+id/bg_navbar">
+
+        <ImageView
+            android:id="@+id/iv_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_home"
+            app:layout_constraintBottom_toBottomOf="@id/bg_navbar"
+            app:layout_constraintStart_toStartOf="@id/bg_navbar"
+            app:layout_constraintTop_toTopOf="@+id/bg_navbar" />
+
+        <ImageView
+            android:id="@+id/iv_monitoring"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_home"
+            app:layout_constraintBottom_toBottomOf="@id/bg_navbar"
+            app:layout_constraintStart_toEndOf="@id/iv_home"
+            app:layout_constraintTop_toTopOf="@+id/bg_navbar" />
+
+        <ImageView
+            android:id="@+id/iv_limit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_home"
+            app:layout_constraintBottom_toBottomOf="@id/bg_navbar"
+            app:layout_constraintStart_toEndOf="@id/iv_monitoring"
+            app:layout_constraintTop_toTopOf="@+id/bg_navbar" />
+
+        <ImageView
+            android:id="@+id/iv_history"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_home"
+            app:layout_constraintBottom_toBottomOf="@id/bg_navbar"
+            app:layout_constraintStart_toEndOf="@id/iv_limit"
+            app:layout_constraintTop_toTopOf="@+id/bg_navbar" />
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_home"
+            app:layout_constraintBottom_toBottomOf="@id/bg_navbar"
+            app:layout_constraintStart_toEndOf="@id/iv_history"
+            app:layout_constraintTop_toTopOf="@+id/bg_navbar" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
