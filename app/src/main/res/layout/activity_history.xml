@@ -73,18 +73,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/tv_monthly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="Monthly"
-            android:textColor="#000"
-            android:textSize="18dp"
+<!--        <TextView-->
+<!--            android:id="@+id/tv_monthly"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:text="Monthly"-->
+<!--            android:textColor="#000"-->
+<!--            android:textSize="2dp"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/wrap1"/>-->
+
+        <Spinner
+            android:id="@+id/spinner_monthly"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toTopOf="@id/wrap1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/wrap1"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/wrap2"
@@ -171,7 +182,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:text="Rp 30.000,00"
+            android:text="Rp30.000,00"
             android:textColor="#000"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -179,5 +190,30 @@
             app:layout_constraintBottom_toTopOf="@id/wrap4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_graph_monitoring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/layout_body_history">
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/gv_graph_monitoring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="75dp"
+            app:layout_constraintBottom_toBottomOf="@+id/include"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wrap4"
+            app:layout_constraintVertical_bias="0" />
+
+    </LinearLayout>
 
 </RelativeLayout>

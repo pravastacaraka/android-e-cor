@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:text="Mar 22, 2019"
+            android:text=""
             android:textColor="#000"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:text="12:10 PM"
+            android:text=""
             android:textColor="#000"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +103,7 @@
             android:id="@+id/wrap2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="120dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/list_rectangle"
             app:layout_constraintTop_toBottomOf="@id/wrap1" />
@@ -112,33 +112,31 @@
             android:id="@+id/tv_usage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:text="Usage"
             android:textColor="#000"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrap1"
-            app:layout_constraintBottom_toTopOf="@id/wrap2"/>
+            app:layout_constraintTop_toBottomOf="@id/wrap1" />
 
         <TextView
             android:id="@+id/tv_kwh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:text="10 kWh"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="-"
             android:textColor="#000"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrap1"
-            app:layout_constraintBottom_toTopOf="@id/wrap2"/>
+            android:textSize="42dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_usage" />
 
         <TextView
             android:id="@+id/wrap3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="120dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/list_rectangle"
             app:layout_constraintTop_toBottomOf="@id/wrap2" />
@@ -148,32 +146,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:text="Cost"
             android:textColor="#000"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrap2"
-            app:layout_constraintBottom_toTopOf="@id/wrap3"/>
+            app:layout_constraintTop_toBottomOf="@id/wrap2" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Rp 30.000,00"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="-"
             android:textColor="#000"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrap2"
-            app:layout_constraintBottom_toTopOf="@id/wrap3" />
+            android:textSize="42dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cost" />
 
         <TextView
             android:id="@+id/wrap4"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="120dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/list_rectangle"
             app:layout_constraintTop_toBottomOf="@id/wrap3" />
@@ -182,92 +178,63 @@
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:text="Status"
             android:textColor="#000"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrap3"
-            app:layout_constraintBottom_toTopOf="@id/wrap4"/>
+            app:layout_constraintTop_toBottomOf="@id/wrap3" />
 
         <TextView
             android:id="@+id/tv_limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
             android:text="Under the limit"
             android:textColor="#000"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrap3"
-            app:layout_constraintBottom_toTopOf="@id/wrap4" />
+            android:textSize="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/wrap5"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:background="@drawable/list_rectangle"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/wrap4"-->
+<!--            android:visibility="invisible" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_yValue"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="@drawable/edit_text_custom"-->
+<!--            android:textColor="#000"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/wrap4"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/wrap5"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/bt_insert"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:text="Insert"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="18dp"-->
+<!--            app:layout_constraintStart_toEndOf="@id/et_yValue"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/wrap4"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/wrap5" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--    <TextView-->
-<!--        android:id="@+id/wrap5"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:background="@drawable/list_rectangle"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/wrap4"-->
-<!--        android:visibility="invisible" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/et_yValue"-->
-<!--        android:layout_width="180dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:padding="10dp"-->
-<!--        android:background="@drawable/edit_text_custom"-->
-<!--        android:textColor="#000"-->
-<!--        android:textSize="18dp"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/wrap4"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/wrap5"/>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/bt_insert"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:text="Insert"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textColor="#fff"-->
-<!--        android:textSize="18dp"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintStart_toEndOf="@id/et_yValue"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/wrap4"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/wrap5" />-->
-
-    <LinearLayout
-        android:id="@+id/layout_graph_monitoring"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@id/layout_body_monitoring">
-
-        <com.jjoe64.graphview.GraphView
-            android:id="@+id/gv_graph_monitoring"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="75dp"
-            app:layout_constraintBottom_toBottomOf="@+id/include"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wrap4"
-            app:layout_constraintVertical_bias="0" />
-
-    </LinearLayout>
 
 </RelativeLayout>
