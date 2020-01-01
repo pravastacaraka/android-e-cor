@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "36610240367",
+    "firebase_url": "https://ecor-786d5.firebaseio.com",
+    "project_id": "ecor-786d5",
+    "storage_bucket": "ecor-786d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36610240367:android:0a525011509adffa83029a",
+        "android_client_info": {
+          "package_name": "com.edm.ecor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36610240367-gvqlrbq221o06hpgpqeke799gpf9ls3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edm.ecor",
+            "certificate_hash": "41b0cecc9999ea54f7ea79036a3999dba13e24b0"
+          }
+        },
+        {
+          "client_id": "36610240367-qdl6qrnef0v0vh40rb1p4c1j32ukoc44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlTJdgDHurAn_5SNCwKMhXHpIgcxgpL7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36610240367-qdl6qrnef0v0vh40rb1p4c1j32ukoc44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

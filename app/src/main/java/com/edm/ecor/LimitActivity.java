@@ -1,5 +1,8 @@
 package com.edm.ecor;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,37 +13,34 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+public class LimitActivity extends AppCompatActivity {
 
-public class HomeActivity extends AppCompatActivity {
-
-    ImageView btnMonitoring, btnLimit, btnHistory, btnSetting;
+    ImageView btnMonitoring, btnHome, btnHistory, btnSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_limit);
 
         transparentStatusAndNavigation();
 
+        btnHome = findViewById(R.id.iv_home);
         btnMonitoring = findViewById(R.id.iv_monitoring);
-        btnLimit = findViewById(R.id.iv_limit);
         btnHistory = findViewById(R.id.iv_history);
         btnSetting = findViewById(R.id.iv_setting);
 
-        btnMonitoring.setOnClickListener(new View.OnClickListener() {
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, MonitoringActivity.class);
+                Intent i = new Intent(LimitActivity.this, HomeActivity.class);
                 startActivity(i);
                 finish();
             }
         });
-        btnLimit.setOnClickListener(new View.OnClickListener() {
+        btnMonitoring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, LimitActivity.class);
+                Intent i = new Intent(LimitActivity.this, MonitoringActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, HistoryActivity.class);
+                Intent i = new Intent(LimitActivity.this, HistoryActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, SettingActivity.class);
+                Intent i = new Intent(LimitActivity.this, SettingActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -73,7 +73,7 @@ public class HomeActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        HomeActivity.super.onBackPressed();
+                        LimitActivity.super.onBackPressed();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
