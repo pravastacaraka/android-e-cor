@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -35,9 +37,10 @@ import java.util.Locale;
 public class HistoryActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ImageView btnMonitoring, btnHome, btnLimit, btnSetting;
+    TextView tvAvgUsage, tvTotalCost;
 
     FirebaseDatabase database;
-    DatabaseReference myRef;
+    DatabaseReference myRefUsage, myRefTime, myPar;
 
     SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss", Locale.getDefault());
 
@@ -45,6 +48,11 @@ public class HistoryActivity extends AppCompatActivity implements AdapterView.On
     LineGraphSeries<DataPoint> series;
 
     String[] range = { "Daily", "Weekly", "Monthly" };
+    String[] monthly = {"Jan 1-Jan 31", "Feb 1-Feb 29", "Mar 1-Mar 30", "Apr 1-Apr 31", "May 1-May 30",
+            "June 1-June 31", "Jul 1-Jul 30", "Aug 1-Aug 31", "Sep 1-Sep 30", "Oct 1-Oct 31","Nov 1-Nov 30", "Dec 1-Dec 31"};
+    int totalData = 1;
+    Double powerUsage;
+    Long dateTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +66,14 @@ public class HistoryActivity extends AppCompatActivity implements AdapterView.On
         btnLimit = findViewById(R.id.iv_limit);
         btnSetting = findViewById(R.id.iv_setting);
         graphView = findViewById(R.id.gv_graph_monitoring);
+        tvAvgUsage = findViewById(R.id.tv_kwh);
+        tvTotalCost = findViewById(R.id.tv_price);
 
         // Initialize firebase database
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("daya");
+        myRefUsage = database.getReference("daya");
+        myRefTime = database.getReference("dateTime");
+        myPar = myRefUsage.getParent();
 
         // Initialize GraphView and LineGraphSeries
         graphView.setVisibility(View.VISIBLE);
@@ -125,6 +137,17 @@ public class HistoryActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
         Toast.makeText(getApplicationContext(), "Selected: " + range[position] ,Toast.LENGTH_SHORT).show();
+
+        if(position == 2) {
+            // Spinner range
+            Spinner spin1 = findViewById(R.id.spinner_range_month);
+            ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, monthly);
+            adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spin1.setAdapter(adapter1);
+//            spin1.setOnItemSelectedListener(this);
+        }
+
+
     }
 
     @Override
@@ -136,20 +159,52 @@ public class HistoryActivity extends AppCompatActivity implements AdapterView.On
     protected void onStart() {
         super.onStart();
 
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
+        // Read from daya child database
+        myRefUsage.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DataPoint[] dp = new DataPoint[(int)dataSnapshot.getChildrenCount()];
+                Double avgUsage, priceTotal;
+                powerUsage = dataSnapshot.getValue(Double.class);
+                long x = new Date().getTime();
+
+                powerUsage = powerUsage / 1000;
+                powerUsage += powerUsage;
+                totalData++;
+
+                priceTotal = powerUsage * 0.00127;
+                avgUsage = powerUsage / totalData;
+
+                // Send data to database
+                myPar.child("dateTime").setValue(x);
+                myPar.child("avgPower").setValue(avgUsage);
+                myPar.child("totalCost").setValue(priceTotal);
+
+                // Change TextView when database changed
+                tvAvgUsage.setText(String.format("%.3f", avgUsage) + " kWh");
+                tvTotalCost.setText("Rp" + String.format("%.3f", priceTotal) + ",00");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        // Read from parent database
+        myRefTime.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DataPoint[] dp = new DataPoint[2];
                 int index = 0;
 
                 for (DataSnapshot myDataSnapshot : dataSnapshot.getChildren()){
-                    PointValue pointValue = myDataSnapshot.getValue(PointValue.class);
-                    dp[index] = new DataPoint(pointValue.getxValue(), pointValue.getyValue());
+                    dateTime = dataSnapshot.getValue(Long.class);
+
+                    dp[index] = new DataPoint(dateTime, powerUsage);
                     index++;
                 }
 
-                series.resetData(dp);
+//                series.resetData(dp);
             }
 
             @Override

@@ -126,7 +126,9 @@ public class MonitoringActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Double value = dataSnapshot.getValue(Double.class);
                 Double price = value * 0.00127;
+
                 value = value / 1000;
+
                 tvUsage.setText(String.format("%.3f", value) + " kWh");
                 tvPrice.setText("Rp" + String.format("%.3f", price) + ",00");
             }
